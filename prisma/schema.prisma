@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Forum {
+  id              String    @id @default(cuid())
+  url             String    @unique
+  cleanUrl        String    @unique
+  loginUrl        String?
+  registrationUrl String?
+  topics          String    // Semicolon separated topics
+  status          ForumStatus
+  description     String?
+  comment        String?
+  tasks          Task[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model Task {
+  id              String    @id @default(cuid())
+  forum           Forum     @relation(fields: [forumId], references: [id])
+  forumId         String
+  email           Email     @relation(fields: [emailId], references: [id])
+  emailId         String
+  website         Website   @relation(fields: [websiteId], references: [id])
+  websiteId       String
+  username        String
+  password        String
+  registrationStatus TaskStatus
+  postStatus      TaskStatus
+  linkStatus      TaskStatus
+  postUrl         String?
+  indexationStatus Boolean  @default(false)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model Email {
+  id          String    @id @default(cuid())
+  webmailUrl  String
+  email       String    @unique
+  password    String
+  aliases     String    // Semicolon separated aliases
+  tasks       Task[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Website {
+  id          String    @id @default(cuid())
+  name        String
+  url         String    @unique
+  topic       String
+  tasks       Task[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+enum ForumStatus {
+  FUNCTIONAL_WITH_EMAIL
+  FUNCTIONAL_WITHOUT_EMAIL
+  GUESTBOOK
+  REGISTRATION_DENIED
+  NOT_WORKING
+  NO_FORUM
+  OTHER_ISSUE
+}
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  FAILED
+}
