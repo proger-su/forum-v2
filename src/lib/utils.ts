@@ -118,5 +118,4 @@ export const statusColors = {
   [TaskStatus.REGISTRATION_OK_NO_EMAIL]: 'text-green-600 bg-green-50',
   [TaskStatus.REGISTRATION_OK_WITH_EMAIL]: 'text-blue-600 bg-blue-50',
   [TaskStatus.REGISTRATION_PENDING]: 'text-yellow-600 bg-yellow-50',
-  [TaskStatus.REGISTRATION_DENIED]: 'text-red-600 bg-red-50',
 };
