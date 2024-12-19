@@ -1,5 +1,8 @@
 import { clsx, type ClassValue } from 'clsx';
-import { ForumStatus, TaskStatus, TaskProcessStatus, Task, LinkVerificationStatus, IndexationStatus } from '../types/task-status';
+import {  TaskStatus, TaskProcessStatus, LinkVerificationStatus, IndexationStatus } from '../types/task-status';
+
+import { ForumStatus } from '../types/forum-status';
+import type { Task } from '../types';
 
 export function cn(...inputs: ClassValue[]) {
   return clsx(inputs);

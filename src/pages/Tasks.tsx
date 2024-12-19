@@ -7,10 +7,10 @@ import { SlideOver } from '../components/ui/SlideOver';
 import { TaskForm } from '../components/forms/TaskForm';
 import { Badge } from '../components/ui/Badge';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '../components/ui/select';
-import { getProcessStatusColor, determineProcessStatus } from '../lib/utils';
+import { determineProcessStatus } from '../lib/utils';
 import { api } from '../lib/api';
 import { useFirestore } from '../hooks/useFirestore';
-import { TASK_STATUS_OPTIONS, PROCESS_STATUS_OPTIONS } from '../lib/constants';
+import { TASK_STATUS_OPTIONS, PROCESS_STATUS_OPTIONS } from '../lib/constants/task-status-options';
 
 // Composant pour le tableau virtualisé
 const VirtualizedTasksTable = React.memo(({ tasks, forums, emails, websites, onEdit }) => {
@@ -194,7 +194,6 @@ export default function Tasks() {
                 <SelectItem
                   key={option.value}
                   value={option.value}
-                  className={getProcessStatusColor(option.value)}
                 >
                   {option.label}
                 </SelectItem>

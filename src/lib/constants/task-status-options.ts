@@ -1,4 +1,5 @@
 import { TaskStatus, LinkVerificationStatus, IndexationStatus } from '../../types/task-status';
+import { TaskProcessStatus } from '../../types/task-status/enums';
 
 export const TASK_STATUS_OPTIONS = {
   registration: [

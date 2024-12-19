@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '../ui/form';
 import { Input } from '../ui/input';
-import { Textarea } from '../ui/textarea';
+import { TextArea } from '../ui/TextArea';
 import { Button } from '../ui/Button';
 
 const emailSchema = z.object({
@@ -101,7 +101,7 @@ export function EmailForm({ onSubmit, initialData, isLoading }: EmailFormProps) 
             <FormItem>
               <FormLabel>Aliases (one per line)</FormLabel>
               <FormControl>
-                <Textarea
+                <TextArea
                   placeholder="alias1@example.com&#10;alias2@example.com"
                   className="min-h-[120px] text-base leading-relaxed resize-y"
                   {...field}

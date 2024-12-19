@@ -5,7 +5,7 @@ import * as z from 'zod';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '../ui/form';
 import { Input } from '../ui/input';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '../ui/select';
-import { Textarea } from '../ui/textarea';
+import { TextArea } from '../ui/TextArea';
 import { Button } from '../ui/Button';
 import { ForumStatus } from '../../types';
 import { MultiSelect } from '../ui/multi-select';
@@ -205,7 +205,7 @@ export function ForumForm({ onSubmit, initialData, isLoading }: ForumFormProps) 
                 <FormItem>
                   <FormLabel>Commentaire</FormLabel>
                   <FormControl>
-                    <Textarea
+                    <TextArea
                       placeholder="Entrer un commentaire..."
                       className="h-20 resize-none"
                       {...field}

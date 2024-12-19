@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '../ui/form';
 import { Input } from '../ui/input';
-import { Textarea } from '../ui/textarea';
+import { TextArea } from '../ui/TextArea';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '../ui/select';
 import { Button } from '../ui/Button';
 import { TaskStatus, IndexationStatus, LinkVerificationStatus, Forum, Email, Website } from '../../types';
@@ -238,7 +238,7 @@ export function TaskForm({ onSubmit, initialData, isLoading, forums, emails, web
                 <FormItem>
                   <FormLabel>Message à poster</FormLabel>
                   <FormControl>
-                    <Textarea
+                    <TextArea
                       placeholder="Entrer le message à poster..."
                       className="min-h-[120px] resize-y"
                       {...field}
@@ -256,7 +256,7 @@ export function TaskForm({ onSubmit, initialData, isLoading, forums, emails, web
                 <FormItem>
                   <FormLabel>Commentaire</FormLabel>
                   <FormControl>
-                    <Textarea
+                    <TextArea
                       placeholder="Ajouter un commentaire sur cette tâche..."
                       className="min-h-[120px] resize-y"
                       {...field}

@@ -6,7 +6,6 @@ import { useFirestore } from '../hooks/useFirestore';
 import { Modal } from '../components/ui/Modal';
 import { ForumForm } from '../components/forms/ForumForm';
 import { Badge } from '../components/ui/Badge';
-import { getStatusColor } from '../lib/utils';
 
 export default function Forums() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -86,7 +85,7 @@ export default function Forums() {
                     {forum.url}
                   </td>
                   <td className="whitespace-nowrap px-6 py-4 text-sm">
-                    <Badge variant={getStatusColor(forum.status)}>
+                    <Badge>
                       {forum.status}
                     </Badge>
                   </td>
